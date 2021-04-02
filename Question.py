@@ -5,9 +5,9 @@ class Question:
 
     def __init__(self, clue:str):
 
+        self.questionId = str(uuid4())[:7]
         self.clue = clue
         self.answer = ""
-        self.questionId = str(uuid4())[:7]
   
     # Methods
     def addAnswer(self, answer:str):

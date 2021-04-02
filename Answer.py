@@ -8,8 +8,9 @@ class Answer:
     
     # init method or constructor   
     def __init__(self, answer:str):
-        self.answer = answer
         self.answerId = str(uuid4())[:7]
+        self.answer = answer
+        
         
     # Methods
     

@@ -1,5 +1,6 @@
 from uuid import *
 from Question import *
+import json
 
 # A Sample class with init method  
 class QuestionService:
@@ -9,12 +10,21 @@ class QuestionService:
     count = 0
    
     # Methods
+
+    def convertToJson(self, data:Question):
+        return json.dumps(data.__dict__)
+    
+    def convertToPython(self, data):
+        return json.loads(data)
+    
     def addQuestion(self, question: Question):
         self.questions.append(question)
 
     def createQuestion(self, clue:str):
         newQuestion = Question(clue)
-        return newQuestion
+        jsonObj = self.convertToJson(newQuestion)
+        pythonObj = self.convertToPython(jsonObj)
+        return pythonObj
 
     def getQuestion(self, questionId:str):
         return self.findQuestion(questionId)
@@ -30,13 +40,22 @@ class QuestionService:
 
     def findQuestion(self, questionId: str):
         for question in self.questions:
-            if (question.questionId == questionId):
+            newQuestion = self.convertToPython(question)
+            if (question.get("questionId") == questionId):
                 return question
             else:
                 return "Error: Question does not exist."
         
 
 questionService = QuestionService()
+
 question1 = questionService.createQuestion("is it red?")
 questionService.addQuestion(question1)
-print("Question1 ID: ", question1.questionId)
+
+question2 = questionService.createQuestion("is it red?")
+questionService.addQuestion(question1)
+
+print("Question1 ID: ", question1.get("questionId"))
+print("Question2 ID: ", question2.get("questionId"))
+print("All Questions: ", questionService.getQuestions())
+
