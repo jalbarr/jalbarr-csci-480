@@ -1,10 +1,11 @@
 from random import *
 
 class Categories:  
-      
-    Fruits = ['Apple', 'Orange', 'Cherry', 'Banana', 'Peach']
-    Animals = ['Cat', 'Dog', 'Bird', 'Lion', 'Tiger', 'Bear']
-    Occupations = ['Artist', 'Programmer', 'Plumber', 'Farmer', 'Dentist']
+
+    def __init__(self):
+        self.Fruits = ['Apple', 'Orange', 'Cherry', 'Banana', 'Peach']
+        self.Animals = ['Cat', 'Dog', 'Bird', 'Lion', 'Tiger', 'Bear']
+        self.Occupations = ['Artist', 'Programmer', 'Plumber', 'Farmer', 'Dentist']
 
     # Methods   
     def getFruits(self):
