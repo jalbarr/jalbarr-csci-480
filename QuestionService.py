@@ -45,17 +45,4 @@ class QuestionService:
                 return question
             else:
                 return "Error: Question does not exist."
-        
-
-questionService = QuestionService()
-
-question1 = questionService.createQuestion("is it red?")
-questionService.addQuestion(question1)
-
-question2 = questionService.createQuestion("is it red?")
-questionService.addQuestion(question1)
-
-print("Question1 ID: ", question1.get("questionId"))
-print("Question2 ID: ", question2.get("questionId"))
-print("All Questions: ", questionService.getQuestions())
 

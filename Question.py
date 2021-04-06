@@ -8,6 +8,7 @@ class Question:
         self.questionId = str(uuid4())[:7]
         self.clue = clue
         self.answer = ""
+        print("Question: " + self.questionId + " created.")
   
     # Methods
     def addAnswer(self, answer:str):
@@ -21,5 +22,3 @@ class Question:
     
     def getClue(self):
         return self.clue
-
-question = Question("Test Clue")

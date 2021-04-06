@@ -39,15 +39,3 @@ class AnswerService:
                 return answer
             else:
                 return "Error: Answer does not exist."
-
-answerService = AnswerService()
-
-answer1 = answerService.createAnswer("is it red?")
-answerService.addAnswer(answer1)
-
-answer2 = answerService.createAnswer("is it round?")
-answerService.addAnswer(answer2)
-
-print("Answer1 ID: ", answer1.get("answerId"))
-print("Answer2 ID: ", answer2.get("answerId"))
-print("All Answers: ", answerService.getAnswers())

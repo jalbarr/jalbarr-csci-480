@@ -2,20 +2,18 @@ from AnswerService import *
 from QuestionService import *
 from AnswerService import *
 from Categories import *
+import uuid
 
-# A Sample class with init method  
-
+# A Sample class with init method
 
 class Alexa:
 
-    questionService = QuestionService()
-    answerService = AnswerService()
-    categories = Categories()
-    correctAnswer = None
-
-
     def __init__(self):
-        self.correctAnswer = Categories.getRandomCategory(self.categories)
+        self.alexaId = str(uuid4())[:7]
+        self.questionService = QuestionService()
+        self.answerService = AnswerService()
+        self.categories = Categories()
+        self.correctAnswer = self.categories.getRandomCategory()
 
         
     # Sample Method

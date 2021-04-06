@@ -10,6 +10,7 @@ class Answer:
     def __init__(self, answer:str):
         self.answerId = str(uuid4())[:7]
         self.answer = answer
+        print("Answer: " + self.answerId + "Created")
         
         
     # Methods
@@ -19,5 +20,3 @@ class Answer:
 
     def getAnswer(self):
     	return self
-
-answer = Answer("Test Answer")

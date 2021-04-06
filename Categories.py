@@ -3,8 +3,8 @@ from random import *
 class Categories:  
 
     def __init__(self):
-        self.Fruits = ['Apple', 'Orange', 'Cherry', 'Banana', 'Peach']
-        self.Animals = ['Cat', 'Dog', 'Bird', 'Lion', 'Tiger', 'Bear']
+        self.Fruits = ["Apple","Banana","Cherry", "Orange", "Grape", "Kiwi", "Lemon"]
+        self.Animals = ["cheetah", "Parrot", "cat", "monkey", "gorilla", "mouse", "eagle" ]
         self.Occupations = ['Artist', 'Programmer', 'Plumber', 'Farmer', 'Dentist']
 
     # Methods   
@@ -29,5 +29,3 @@ class Categories:
     def getRandomCategory(self):
         allCategories = self.Animals + self.Fruits + self.Occupations
         return allCategories[randint(0,len(allCategories)-1)]
-
-category = Categories()
