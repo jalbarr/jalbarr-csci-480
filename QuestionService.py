@@ -21,13 +21,22 @@ class QuestionService:
         self.questions.append(question)
 
     def createQuestion(self, clue:str):
-        newQuestion = Question(clue)
-        jsonObj = self.convertToJson(newQuestion)
-        pythonObj = self.convertToPython(jsonObj)
-        return pythonObj
+        
+        if(clue != None):
+            newQuestion = Question(clue)
+            jsonObj = self.convertToJson(newQuestion)
+            pythonObj = self.convertToPython(jsonObj)
+            return pythonObj
+            
+        else:
+            print("clue does not exist")
 
     def getQuestion(self, questionId:str):
-        return self.findQuestion(questionId)
+        if (questionId != None):
+            return self.findQuestion(questionId)
+            
+        else:
+            return 4
 
     def getQuestions(self):
         return self.questions
@@ -41,7 +50,7 @@ class QuestionService:
     def findQuestion(self, questionId: str):
         for question in self.questions:
             newQuestion = self.convertToPython(question)
-            if (question.get("questionId") == questionId):
+            if (question.get(questionId) == questionId):
                 return question
             else:
                 return "Error: Question does not exist."
