@@ -1,29 +1,18 @@
 from uuid import *
 from Answer import *
-import json
 
 # A Sample class with init method  
 class AnswerService:
 
-    
     answers = []
    
     # Methods
-
-    def convertToJson(self, data):
-        return json.dumps(data.__dict__)
-    
-    def convertToPython(self, data):
-        return json.loads(data)
-    
     def addAnswer(self, answer: Answer):
         self.answers.append(answer)
 
     def createAnswer(self, answer:str):
         newAnswer = Answer(answer)
-        jsonObj = self.convertToJson(newAnswer)
-        pythonObj = self.convertToPython(jsonObj)
-        return pythonObj
+        return newAnswer
 
     def getAnswer(self, answerId:str):
         return self.findAnswer(answerId)
@@ -33,9 +22,16 @@ class AnswerService:
 
     def findAnswer(self, answerId: str):
         for answer in self.answers:
-            newAnswer = self.convertToPython(answer)
-
-            if (newAnswer.get("answerId") == answerId):
+            if (answer.answerId == answerId):
                 return answer
             else:
                 return "Error: Answer does not exist."
+
+answerService = AnswerService()
+answer1 = answerService.createAnswer("is it red?")
+answerService.addAnswer(answer1)
+answer2 = answerService.createAnswer("is it round?")
+answerService.addAnswer(answer2)
+print("Answer1 ID: ", answerService.getAnswer(answer1.answerId))
+print("Answer2 ID: ", answerService.getAnswer(answer2.answerId))
+print("All Answers: ", answerService.getAnswers())
